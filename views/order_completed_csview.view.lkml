@@ -202,7 +202,7 @@ view: order_completed_csview {
   }
 
   measure: order_count {
-    type: count_distinct
+    type: count
     drill_fields: [order_id]
   }
   measure: count_userid {
