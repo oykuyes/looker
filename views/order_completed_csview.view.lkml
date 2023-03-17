@@ -206,7 +206,7 @@ view: order_completed_csview {
     drill_fields: [order_id]
   }
   measure: count_userid {
-    type: count_distinct
+    type: count
     drill_fields: [user_id]
   }
 
