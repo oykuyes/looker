@@ -191,12 +191,23 @@ view: order_completed_csview {
     sql: ${TABLE}.user_id ;;
   }
 
-  measure: count {
-    type: count
+  measure: sum_of_total {
+    type: sum
     drill_fields: [total]
   }
-  measure: sum_subtotal {
+
+  measure: sum_of_subtotal {
     type: sum
     drill_fields: [subtotal]
   }
+
+  measure: order_count {
+    type: count_distinct
+    drill_fields: [order_id]
+  }
+  measure: count_userid {
+    type: count_distinct
+    drill_fields: [user_id]
+  }
+
 }
