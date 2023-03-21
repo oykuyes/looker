@@ -1,16 +1,6 @@
-view: product_cancelled_csview {
-  sql_table_name: `Looker.ProductCancelledCSView`
+view: product_purchased_cs {
+  sql_table_name: `ciceksepeti-dwh.Looker.ProductPurchasedCSView`
     ;;
-
-  dimension: additional_product_cancel_amount {
-    type: number
-    sql: ${TABLE}.additional_product_cancel_amount ;;
-  }
-
-  dimension: additional_product_id {
-    type: string
-    sql: ${TABLE}.additional_product_id ;;
-  }
 
   dimension: brand {
     type: string
@@ -18,7 +8,7 @@ view: product_cancelled_csview {
   }
 
   dimension: campaign_discount {
-    type: number
+    type: string
     sql: ${TABLE}.campaign_discount ;;
   }
 
@@ -37,24 +27,14 @@ view: product_cancelled_csview {
     sql: ${TABLE}.campaign_type ;;
   }
 
-  dimension: cancel_amount {
-    type: number
-    sql: ${TABLE}.cancel_amount ;;
-  }
-
-  dimension: cancel_reason {
-    type: string
-    sql: ${TABLE}.cancel_reason ;;
-  }
-
   dimension: category {
     type: string
     sql: ${TABLE}.category ;;
   }
 
-  dimension: category_0 {
+  dimension: category_0_of_products {
     type: string
-    sql: ${TABLE}.category_0 ;;
+    sql: ${TABLE}.category_0_of_products ;;
   }
 
   dimension: category_1 {
@@ -77,29 +57,14 @@ view: product_cancelled_csview {
     sql: ${TABLE}.category_4 ;;
   }
 
-  dimension: category_5 {
+  dimension: currency_of_products {
     type: string
-    sql: ${TABLE}.category_5 ;;
-  }
-
-  dimension: currency {
-    type: string
-    sql: ${TABLE}.currency ;;
-  }
-
-  dimension: deferred_fee {
-    type: number
-    sql: ${TABLE}.deferred_fee ;;
+    sql: ${TABLE}.currency_of_products ;;
   }
 
   dimension: delivery_city_info {
     type: string
     sql: ${TABLE}.delivery_city_info ;;
-  }
-
-  dimension: delivery_schedule {
-    type: string
-    sql: ${TABLE}.delivery_schedule ;;
   }
 
   dimension: delivery_type {
@@ -108,27 +73,22 @@ view: product_cancelled_csview {
   }
 
   dimension: gross_profit {
-    type: number
+    type: string
     sql: ${TABLE}.gross_profit ;;
   }
 
-  dimension: has_additional_product {
-    type: yesno
-    sql: ${TABLE}.has_additional_product ;;
-  }
-
   dimension: is_abonelik {
-    type: yesno
+    type: string
     sql: ${TABLE}.is_abonelik ;;
   }
 
-  dimension: is_personalized {
-    type: yesno
-    sql: ${TABLE}.is_personalized ;;
+  dimension: is_main_product {
+    type: string
+    sql: ${TABLE}.is_main_product ;;
   }
 
   dimension: is_quick_delivery {
-    type: yesno
+    type: string
     sql: ${TABLE}.is_quick_delivery ;;
   }
 
@@ -142,13 +102,28 @@ view: product_cancelled_csview {
     sql: ${TABLE}.order_id ;;
   }
 
-  dimension: personalization_type {
+  dimension: position {
     type: string
-    sql: ${TABLE}.personalization_type ;;
+    sql: ${TABLE}.position ;;
+  }
+
+  dimension: pre_sale_percent_label {
+    type: string
+    sql: ${TABLE}.pre_sale_percent_label ;;
+  }
+
+  dimension: pre_sale_price {
+    type: string
+    sql: ${TABLE}.pre_sale_price ;;
+  }
+
+  dimension: pre_sale_price_decrease {
+    type: string
+    sql: ${TABLE}.pre_sale_price_decrease ;;
   }
 
   dimension: price {
-    type: number
+    type: string
     sql: ${TABLE}.price ;;
   }
 
@@ -158,18 +133,18 @@ view: product_cancelled_csview {
   }
 
   dimension: quantity {
-    type: number
+    type: string
     sql: ${TABLE}.quantity ;;
   }
 
-  dimension: shipping {
-    type: number
-    sql: ${TABLE}.shipping ;;
+  dimension: selected_currency_of_products {
+    type: string
+    sql: ${TABLE}.selected_currency_of_products ;;
   }
 
-  dimension: suborder_id {
+  dimension: shipping_of_products {
     type: string
-    sql: ${TABLE}.suborder_id ;;
+    sql: ${TABLE}.shipping_of_products ;;
   }
 
   dimension_group: timestamp {
@@ -184,11 +159,6 @@ view: product_cancelled_csview {
       year
     ]
     sql: ${TABLE}.timestamp ;;
-  }
-
-  dimension: total_cancel_amount {
-    type: number
-    sql: ${TABLE}.total_cancel_amount ;;
   }
 
   dimension: user_id {
@@ -209,16 +179,6 @@ view: product_cancelled_csview {
   dimension: variant_id {
     type: string
     sql: ${TABLE}.variant_id ;;
-  }
-
-  dimension: variant_shoe_size {
-    type: string
-    sql: ${TABLE}.variant_shoe_size ;;
-  }
-
-  dimension: vendor_id {
-    type: string
-    sql: ${TABLE}.vendor_id ;;
   }
 
   dimension: vendor_type {

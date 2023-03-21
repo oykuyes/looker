@@ -10,10 +10,16 @@ datagroup: segment_default_datagroup {
 
 persist_with: segment_default_datagroup
 
-explore: order_completed_csview {}
+explore: order_completed_cs {}
 
-explore: product_returned_csview {}
+explore: dim_user {}
 
-explore: product_cancelled_csview {}
+explore: favorite_viewed_cs {}
 
-explore: product_review_approved_csview {}
+explore: product_viewed_cs {}
+
+explore: product_purchased_cs {}
+
+explore: dim_date {}
+
+explore: promotion_clicked_cs {}

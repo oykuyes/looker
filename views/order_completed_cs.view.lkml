@@ -1,5 +1,5 @@
-view: order_completed_csview {
-  sql_table_name: `Looker.OrderCompletedCSView`
+view: order_completed_cs {
+  sql_table_name: `ciceksepeti-dwh.Looker.OrderCompletedCSView`
     ;;
 
   dimension: authentication {
@@ -191,23 +191,8 @@ view: order_completed_csview {
     sql: ${TABLE}.user_id ;;
   }
 
-  measure: sum_of_total {
-    type: sum
-    drill_fields: [total]
-  }
-
-  measure: sum_of_subtotal {
-    type: sum
-    drill_fields: [subtotal]
-  }
-
-  measure: order_count {
+  measure: count {
     type: count
-    drill_fields: [order_id]
+    drill_fields: [cart_campaign_name]
   }
-  measure: count_userid {
-    type: count_distinct
-    drill_fields: [user_id]
-  }
-
 }
