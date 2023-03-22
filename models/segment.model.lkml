@@ -16,27 +16,27 @@ explore: dim_user {
   join: order_completed_cs {
     type: inner
     relationship: one_to_many
-    sql_on: ${order_completed_cs.user_id} = ${user_id} ;;
+    sql_on: ${order_completed_cs.user_id} = ${dim_user.user_id} ;;
   }
   join: favorite_viewed_cs {
     type: inner
     relationship: one_to_many
-    sql_on: ${favorite_viewed_cs.user_id} = ${user_id} ;;
+    sql_on: ${favorite_viewed_cs.user_id} = ${dim_user.user_id} ;;
   }
   join: product_viewed_cs {
     type: inner
     relationship: one_to_many
-    sql_on: ${product_viewed_cs.user_id} = ${user_id} ;;
+    sql_on: ${product_viewed_cs.user_id} = ${dim_user.user_id} ;;
   }
   join: product_purchased_cs {
     type: inner
     relationship: one_to_many
-    sql_on: ${product_purchased_cs.user_id} = ${user_id} ;;
+    sql_on: ${product_purchased_cs.user_id} = ${dim_user.user_id} ;;
   }
   join: promotion_clicked_cs {
     type: inner
     relationship: one_to_many
-    sql_on: ${promotion_clicked_cs.user_id} = ${user_id} ;;
+    sql_on: ${promotion_clicked_cs.user_id} = ${dim_user.user_id} ;;
   }
 }
 
