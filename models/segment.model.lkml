@@ -12,7 +12,33 @@ persist_with: segment_default_datagroup
 
 explore: order_completed_cs {}
 
-explore: dim_user {}
+explore: dim_user {
+  join: order_completed_cs {
+    type: inner
+    relationship: one_to_many
+    sql_on: ${order_completed_cs.user_id} = ${user_id} ;;
+  }
+  join: favorite_viewed_cs {
+    type: inner
+    relationship: one_to_many
+    sql_on: ${favorite_viewed_cs.user_id} = ${user_id} ;;
+  }
+  join: product_viewed_cs {
+    type: inner
+    relationship: one_to_many
+    sql_on: ${product_viewed_cs.user_id} = ${user_id} ;;
+  }
+  join: product_purchased_cs {
+    type: inner
+    relationship: one_to_many
+    sql_on: ${product_purchased_cs.user_id} = ${user_id} ;;
+  }
+  join: promotion_clicked_cs {
+    type: inner
+    relationship: one_to_many
+    sql_on: ${promotion_clicked_cs.user_id} = ${user_id} ;;
+  }
+}
 
 explore: favorite_viewed_cs {}
 
@@ -20,6 +46,32 @@ explore: product_viewed_cs {}
 
 explore: product_purchased_cs {}
 
-explore: dim_date {}
+explore: dim_date {
+  join: order_completed_cs {
+    type: inner
+    relationship: one_to_many
+    sql_on: ${order_completed_cs.timestamp_date} = ${dim_date.date_date} ;;
+  }
+  join: favorite_viewed_cs {
+    type: inner
+    relationship: one_to_many
+    sql_on: ${favorite_viewed_cs.timestamp_date} = ${dim_date.date_date} ;;
+  }
+  join: product_viewed_cs {
+    type: inner
+    relationship: one_to_many
+    sql_on: ${product_viewed_cs.timestamp_date} = ${dim_date.date_date} ;;
+  }
+  join: product_purchased_cs {
+    type: inner
+    relationship: one_to_many
+    sql_on: ${product_purchased_cs.timestamp_date} = ${dim_date.date_date} ;;
+  }
+  join: promotion_clicked_cs {
+    type: inner
+    relationship: one_to_many
+    sql_on: ${promotion_clicked_cs.timestamp_date} = ${dim_date.date_date} ;;
+  }
+}
 
 explore: promotion_clicked_cs {}

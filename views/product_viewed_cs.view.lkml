@@ -134,6 +134,20 @@ view: product_viewed_cs {
     sql: ${TABLE}.vendor_type ;;
   }
 
+  dimension_group: timestamp {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.timestamp ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [id, context_library_name, name]
