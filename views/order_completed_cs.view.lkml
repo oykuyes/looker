@@ -195,4 +195,9 @@ view: order_completed_cs {
     type: count
     drill_fields: [cart_campaign_name]
   }
+
+  measure: user_count {
+    sql: ${user_id} ;;
+    type: count_distinct
+  }
 }

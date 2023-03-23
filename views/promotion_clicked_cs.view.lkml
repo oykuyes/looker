@@ -90,4 +90,9 @@ view: promotion_clicked_cs {
     type: count
     drill_fields: [promotion_name, name]
   }
+
+  measure: user_count {
+    sql: ${user_id} ;;
+    type: count_distinct
+  }
 }

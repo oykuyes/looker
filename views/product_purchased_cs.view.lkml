@@ -186,8 +186,8 @@ view: product_purchased_cs {
     sql: ${TABLE}.vendor_type ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: [campaign_name, name]
+  measure: user_count {
+    sql: ${user_id} ;;
+    type: count_distinct
   }
 }

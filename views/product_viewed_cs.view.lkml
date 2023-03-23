@@ -152,4 +152,9 @@ view: product_viewed_cs {
     type: count
     drill_fields: [id, context_library_name, name]
   }
+
+  measure: user_count {
+    sql: ${user_id} ;;
+    type: count_distinct
+  }
 }
