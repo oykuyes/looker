@@ -68,7 +68,6 @@ view: favorite_viewed_cs {
 
   measure: count {
     type: count
-    drill_fields: []
   }
 
   measure: user_count {

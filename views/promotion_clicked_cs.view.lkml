@@ -88,7 +88,6 @@ view: promotion_clicked_cs {
 
   measure: count {
     type: count
-    drill_fields: [promotion_name, name]
   }
 
   measure: user_count {

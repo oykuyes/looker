@@ -193,7 +193,7 @@ view: order_completed_cs {
 
   measure: count {
     type: count
-    drill_fields: [cart_campaign_name]
+
   }
 
   measure: user_count {

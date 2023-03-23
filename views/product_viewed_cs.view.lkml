@@ -150,7 +150,6 @@ view: product_viewed_cs {
 
   measure: count {
     type: count
-    drill_fields: [id, context_library_name, name]
   }
 
   measure: user_count {
