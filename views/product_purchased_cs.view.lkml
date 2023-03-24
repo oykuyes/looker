@@ -190,4 +190,8 @@ view: product_purchased_cs {
     sql: ${user_id} ;;
     type: count_distinct
   }
+
+  measure: count {
+    type: count
+  }
 }
