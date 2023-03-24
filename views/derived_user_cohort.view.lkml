@@ -2,7 +2,7 @@ view: derived_user_cohort {
 
   derived_table: {
 
-    sql: SELECT DISTINCT users.id  AS user_id
+    sql: SELECT DISTINCT dim_user.user_id  AS user_id
 
                 FROM  `ciceksepeti-dwh.Looker.DimUserView` AS dim_user
 
