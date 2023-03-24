@@ -34,6 +34,8 @@ view: derived_user_cohort {
 
   dimension: user_id {
 
+    primary_key: yes
+
     hidden: yes
 
     description: "Unique ID for each user"
