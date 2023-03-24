@@ -40,7 +40,7 @@ explore: dim_user {
   }
   join: derived_user_cohort {
     type: inner
-    relationship: one_to_many
+    relationship: one_to_one
     sql_on: ${derived_user_cohort.user_id} = ${dim_user.user_id} ;;
   }
 }
