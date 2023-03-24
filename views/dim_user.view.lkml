@@ -3,6 +3,7 @@ view: dim_user{
     ;;
 
   dimension: user_id {
+    primary_key: yes
     type: string
     sql: ${TABLE}.UserId ;;
   }
