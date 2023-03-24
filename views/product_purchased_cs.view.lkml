@@ -32,9 +32,9 @@ view: product_purchased_cs {
     sql: ${TABLE}.category ;;
   }
 
-  dimension: category_0_of_products {
+  dimension: category_0 {
     type: string
-    sql: ${TABLE}.category_0_of_products ;;
+    sql: ${TABLE}.category_0 ;;
   }
 
   dimension: category_1 {
@@ -57,9 +57,9 @@ view: product_purchased_cs {
     sql: ${TABLE}.category_4 ;;
   }
 
-  dimension: currency_of_products {
+  dimension: currency {
     type: string
-    sql: ${TABLE}.currency_of_products ;;
+    sql: ${TABLE}.currency ;;
   }
 
   dimension: delivery_city_info {
@@ -137,14 +137,14 @@ view: product_purchased_cs {
     sql: ${TABLE}.quantity ;;
   }
 
-  dimension: selected_currency_of_products {
+  dimension: selected_currency {
     type: string
-    sql: ${TABLE}.selected_currency_of_products ;;
+    sql: ${TABLE}.selected_currency ;;
   }
 
-  dimension: shipping_of_products {
+  dimension: shipping {
     type: string
-    sql: ${TABLE}.shipping_of_products ;;
+    sql: ${TABLE}.shipping ;;
   }
 
   dimension_group: timestamp {
