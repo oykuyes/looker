@@ -194,4 +194,24 @@ view: product_purchased_cs {
   measure: count {
     type: count
   }
+
+  measure: order_id_count {
+    sql: ${order_id}
+    type: count_distinct ;;
+  }
+
+  measure: product_id_count {
+    sql: ${product_id}
+    type: count_distinct ;;
+  }
+
+  measure: sum_quantity {
+    sql: ${quantity}
+    type: sum ;;
+  }
+
+  measure: total_price {
+    sql: ${price}
+    type: sum ;;
+  }
 }

@@ -108,6 +108,7 @@ view: order_completed_cs {
   }
 
   dimension: order_id {
+    primary_key: yes
     type: string
     sql: ${TABLE}.order_id ;;
   }
@@ -199,5 +200,20 @@ view: order_completed_cs {
   measure: user_count {
     sql: ${user_id} ;;
     type: count_distinct
+  }
+
+  measure: order_id_count {
+    sql: ${order_id}
+    type: count_distinct;;
+  }
+
+  measure: sum_toal {
+    sql: ${total}
+    type: sum ;;
+  }
+
+  measure: sum_toal_discount {
+    sql: ${total_discount}
+    type: sum ;;
   }
 }
