@@ -26,7 +26,15 @@ view: derived_user_cohort {
       LEFT JOIN (SELECT DISTINCT user_id,COUNT(*) as promotion_clicked_event_count FROM `ciceksepeti-dwh.Looker.PromotionClickedCSView` pc WHERE ({% condition promotion_clicked_cs_category_0 %} pc.category_0 {% endcondition %}) GROUP BY user_id)
       AS promotion_clicked_cs ON promotion_clicked_cs.user_id = dim_user.UserId
 
-      WHERE 1=1
+      WHERE ({% condition order_completed_event_count %} order_completed_cs.order_completed_event_count {% endcondition %})
+
+      OR ({% condition product_viewed_event_count %} product_viewed_cs.product_viewed_event_count {% endcondition %} )
+
+      OR ({% condition favorite_viewed_event_count %} favorite_viewed_cs.favorite_viewed_event_count {% endcondition %} )
+
+      OR ({% condition product_purchased_event_count %} product_purchased_cs.product_purchased_event_count {% endcondition %} )
+
+      OR ({% condition promotion_clicked_event_count %} promotion_clicked_cs.promotion_clicked_event_count {% endcondition %} )
       ;;
 
   }
@@ -47,67 +55,65 @@ view: derived_user_cohort {
 
   }
 
-  dimension: order_completed_event_count {
-
-    hidden: no
+  filter: order_completed_event_count {
 
     description: "Unique ID for each user"
 
     type: number
 
-    sql: ${TABLE}.order_completed_event_count ;;
+    suggest_explore: order_completed_cs
+
+    suggest_dimension: order_completed_cs.order_completed_event_count
 
   }
 
-  dimension: product_viewed_event_count {
-
-
-    hidden: no
+  filter: product_viewed_event_count {
 
     description: "Unique ID for each user"
 
     type: number
 
-    sql: ${TABLE}.product_viewed_event_count ;;
+    suggest_explore: product_viewed_cs
+
+    suggest_dimension: product_viewed_cs.product_viewed_event_count
 
   }
 
-  dimension: favorite_viewed_event_count {
+  filter: favorite_viewed_event_count {
 
-
-    hidden: no
 
     description: "Unique ID for each user"
 
     type: number
 
-    sql: ${TABLE}.favorite_viewed_event_count ;;
+    suggest_explore: favorite_viewed_cs
+
+    suggest_dimension: favorite_viewed_cs.favorite_viewed_event_count
 
   }
 
-  dimension: product_purchased_event_count {
+  filter: product_purchased_event_count {
 
-
-    hidden: no
 
     description: "Unique ID for each user"
 
     type: number
 
-    sql: ${TABLE}.product_purchased_event_count ;;
+    suggest_explore: product_purchased_cs
+
+    suggest_dimension: product_purchased_cs.product_purchased_event_count
 
   }
 
-  dimension: promotion_clicked_event_count {
-
-
-    hidden: no
+  filter: promotion_clicked_event_count {
 
     description: "Unique ID for each user"
 
     type: number
 
-    sql: ${TABLE}.promotion_clicked_event_count ;;
+    suggest_explore: promotion_clicked_cs
+
+    suggest_dimension: promotion_clicked_cs.promotion_clicked_event_count
 
   }
 
