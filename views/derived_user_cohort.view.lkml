@@ -3,11 +3,6 @@ view: derived_user_cohort {
   derived_table: {
 
     sql: SELECT DISTINCT dim_user.UserId  AS user_id
-         ,order_completed_event_count
-         ,product_viewed_event_count
-         ,favorite_viewed_event_count
-         ,product_purchased_event_count
-         ,promotion_clicked_event_count
 
          FROM  `ciceksepeti-dwh.Looker.DimUserView` AS dim_user
 
