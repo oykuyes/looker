@@ -23,13 +23,13 @@ view: derived_user_cohort {
 
       WHERE ({% condition order_completed_event_count %} order_completed_cs.event_count {% endcondition %})
 
-      OR ({% condition product_viewed_event_count %} product_viewed_cs.event_count {% endcondition %} )
+      AND ({% condition product_viewed_event_count %} product_viewed_cs.event_count {% endcondition %} )
 
-      OR ({% condition favorite_viewed_event_count %} favorite_viewed_cs.event_count {% endcondition %} )
+      AND ({% condition favorite_viewed_event_count %} favorite_viewed_cs.event_count {% endcondition %} )
 
-      OR ({% condition product_purchased_event_count %} product_purchased_cs.event_count {% endcondition %} )
+      AND ({% condition product_purchased_event_count %} product_purchased_cs.event_count {% endcondition %} )
 
-      OR ({% condition promotion_clicked_event_count %} promotion_clicked_cs.event_count {% endcondition %} )
+      AND ({% condition promotion_clicked_event_count %} promotion_clicked_cs.event_count {% endcondition %} )
       ;;
 
   }
