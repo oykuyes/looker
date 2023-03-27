@@ -123,7 +123,7 @@ view: product_purchased_cs {
   }
 
   dimension: price {
-    type: string
+    type: number
     sql: ${TABLE}.price ;;
   }
 
@@ -133,7 +133,7 @@ view: product_purchased_cs {
   }
 
   dimension: quantity {
-    type: string
+    type: number
     sql: ${TABLE}.quantity ;;
   }
 
