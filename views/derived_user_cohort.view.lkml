@@ -11,25 +11,23 @@ view: derived_user_cohort {
 
          FROM  `ciceksepeti-dwh.Looker.DimUserView` AS dim_user
 
-      LEFT JOIN (SELECT DISTINCT user_id,COUNT(*) as order_completed_event_count FROM `ciceksepeti-dwh.Looker.OrderCompletedCSView` WHERE ({% condition order_completed_cs_category_0 %} order_completed_cs.category_0 {% endcondition %}) GROUP BY user_id)
+      LEFT JOIN (SELECT DISTINCT user_id,COUNT(*) as order_completed_event_count FROM `ciceksepeti-dwh.Looker.OrderCompletedCSView` oc WHERE ({% condition order_completed_cs_category_0 %} oc.category_0 {% endcondition %}) GROUP BY user_id)
       AS order_completed_cs ON order_completed_cs.user_id = dim_user.UserId
 
-      LEFT JOIN (SELECT DISTINCT user_id,COUNT(*) as product_viewed_event_count FROM `ciceksepeti-dwh.Looker.ProductViewedCSView` WHERE ({% condition product_viewed_cs_category_0 %} product_viewed_cs.category_0 {% endcondition %}) GROUP BY user_id)
+      LEFT JOIN (SELECT DISTINCT user_id,COUNT(*) as product_viewed_event_count FROM `ciceksepeti-dwh.Looker.ProductViewedCSView` pv WHERE ({% condition product_viewed_cs_category_0 %} pv.category_0 {% endcondition %}) GROUP BY user_id)
       AS product_viewed_cs ON product_viewed_cs.user_id = dim_user.UserId
 
-      LEFT JOIN (SELECT DISTINCT user_id,COUNT(*) as favorite_viewed_event_count FROM `ciceksepeti-dwh.Looker.FavoriteViewedCSView` WHERE ({% condition favorite_viewed_cs_category_0 %} favorite_viewed_cs.category_0 {% endcondition %}) GROUP BY user_id)
+      LEFT JOIN (SELECT DISTINCT user_id,COUNT(*) as favorite_viewed_event_count FROM `ciceksepeti-dwh.Looker.FavoriteViewedCSView` fv WHERE ({% condition favorite_viewed_cs_category_0 %} fv.category_0 {% endcondition %}) GROUP BY user_id)
       AS favorite_viewed_cs ON favorite_viewed_cs.user_id = dim_user.UserId
 
-      LEFT JOIN (SELECT DISTINCT user_id,COUNT(*) as product_purchased_event_count FROM `ciceksepeti-dwh.Looker.ProductPurchasedCSView` WHERE ({% condition product_purchased_cs_category_0 %} product_purchased_cs.category_0 {% endcondition %}) GROUP BY user_id)
+      LEFT JOIN (SELECT DISTINCT user_id,COUNT(*) as product_purchased_event_count FROM `ciceksepeti-dwh.Looker.ProductPurchasedCSView` pp WHERE ({% condition product_purchased_cs_category_0 %} pp.category_0 {% endcondition %}) GROUP BY user_id)
       AS product_purchased_cs ON product_purchased_cs.user_id = dim_user.UserId
 
-      LEFT JOIN (SELECT DISTINCT user_id,COUNT(*) as promotion_clicked_event_count FROM `ciceksepeti-dwh.Looker.PromotionClickedCSView` WHERE ({% condition promotion_clicked_cs_category_0 %} promotion_clicked_cs.category_0 {% endcondition %}) GROUP BY user_id)
+      LEFT JOIN (SELECT DISTINCT user_id,COUNT(*) as promotion_clicked_event_count FROM `ciceksepeti-dwh.Looker.PromotionClickedCSView` pc WHERE ({% condition promotion_clicked_cs_category_0 %} pc.category_0 {% endcondition %}) GROUP BY user_id)
       AS promotion_clicked_cs ON promotion_clicked_cs.user_id = dim_user.UserId
 
       WHERE 1=1
-
-
-      GROUP BY 1;;
+      ;;
 
   }
 
@@ -51,9 +49,7 @@ view: derived_user_cohort {
 
   dimension: order_completed_event_count {
 
-    primary_key: yes
-
-    hidden: yes
+    hidden: no
 
     description: "Unique ID for each user"
 
@@ -65,9 +61,8 @@ view: derived_user_cohort {
 
   dimension: product_viewed_event_count {
 
-    primary_key: yes
 
-    hidden: yes
+    hidden: no
 
     description: "Unique ID for each user"
 
@@ -79,9 +74,8 @@ view: derived_user_cohort {
 
   dimension: favorite_viewed_event_count {
 
-    primary_key: yes
 
-    hidden: yes
+    hidden: no
 
     description: "Unique ID for each user"
 
@@ -93,9 +87,8 @@ view: derived_user_cohort {
 
   dimension: product_purchased_event_count {
 
-    primary_key: yes
 
-    hidden: yes
+    hidden: no
 
     description: "Unique ID for each user"
 
@@ -107,9 +100,8 @@ view: derived_user_cohort {
 
   dimension: promotion_clicked_event_count {
 
-    primary_key: yes
 
-    hidden: yes
+    hidden: no
 
     description: "Unique ID for each user"
 
@@ -129,7 +121,7 @@ view: derived_user_cohort {
 
     suggest_explore: order_completed_cs
 
-    suggest_dimension: order_completed_cs.category_0
+    suggest_dimension: oc.category_0
 
   }
 
@@ -143,7 +135,7 @@ view: derived_user_cohort {
 
     suggest_explore: product_viewed_cs
 
-    suggest_dimension: product_viewed_cs.category_0
+    suggest_dimension: pv.category_0
 
   }
 
@@ -155,7 +147,7 @@ view: derived_user_cohort {
 
     suggest_explore: favorite_viewed_cs
 
-    suggest_dimension: favorite_viewed_cs.category_0
+    suggest_dimension: fv.category_0
 
   }
 
@@ -167,7 +159,7 @@ view: derived_user_cohort {
 
     suggest_explore: product_purchased_cs
 
-    suggest_dimension: product_purchased_cs.category_0
+    suggest_dimension: pp.category_0
 
   }
 
@@ -179,7 +171,7 @@ view: derived_user_cohort {
 
     suggest_explore: promotion_clicked_cs
 
-    suggest_dimension: promotion_clicked_cs.category_0
+    suggest_dimension: pc.category_0
 
   }
 
