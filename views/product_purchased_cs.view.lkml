@@ -195,23 +195,23 @@ view: product_purchased_cs {
     type: count
   }
 
-  measure: order_id_count {
-    sql: ${order_id}
-    type: count_distinct ;;
+  measure: order_count {
+    type: count_distinct
+    sql: ${order_id};;
   }
 
-  measure: product_id_count {
-    sql: ${product_id}
-    type: count_distinct ;;
+  measure: product_count {
+    type: count_distinct
+    sql: ${product_id};;
   }
 
   measure: sum_quantity {
-    sql: ${quantity}
-    type: sum ;;
+    type: sum
+    sql: ${quantity};;
   }
 
-  measure: total_price {
-    sql: ${price}
-    type: sum ;;
+  measure: sum_total_price {
+    type: sum
+    sql: ${price};;
   }
 }
