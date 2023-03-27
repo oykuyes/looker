@@ -198,22 +198,22 @@ view: order_completed_cs {
   }
 
   measure: user_count {
-    sql: ${user_id} ;;
     type: count_distinct
+    sql: ${user_id} ;;
   }
 
-  measure: order_id_count {
-    sql: ${order_id}
-    type: count_distinct;;
+  measure: order_count {
+    type: count_distinct
+    sql: ${order_id};;
   }
 
-  measure: sum_toal {
-    sql: ${total}
-    type: sum ;;
+  measure: sum_total {
+    type: sum
+    sql: ${total};;
   }
 
-  measure: sum_toal_discount {
-    sql: ${total_discount}
-    type: sum ;;
+  measure: sum_total_discount {
+    type: sum
+    sql: ${total_discount};;
   }
 }
