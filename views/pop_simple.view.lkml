@@ -75,3 +75,10 @@ view: pop_simple {
         {% else %}NULL{% endif %} ;;
   }
 }
+
+  explore: pop_simple {
+    label: "PoP Method 2: Allow users to choose periods with parameters"
+    always_filter: {
+      filters: [pop_simple.choose_comparison: "", pop_simple.choose_breakdown: ""]
+  }
+}
