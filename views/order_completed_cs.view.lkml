@@ -164,8 +164,15 @@ view: order_completed_cs {
       raw,
       time,
       date,
+      day_of_week,
+      day_of_week_index,
+      day_of_month,
+      day_of_year,
       week,
+      week_of_year,
       month,
+      month_name,
+      month_num,
       quarter,
       year
     ]
@@ -190,6 +197,51 @@ view: order_completed_cs {
   dimension: user_id {
     type: string
     sql: ${TABLE}.user_id ;;
+  }
+
+  dimension: wtd_only {
+    group_label: "To-Date Filters"
+    label: "WTD"
+    view_label: "_PoP"
+    type: yesno
+    sql:  (EXTRACT(DOW FROM ${timestamp_date}) < EXTRACT(DOW FROM GETDATE())
+                    OR
+                (EXTRACT(DOW FROM ${timestamp_date}) = EXTRACT(DOW FROM GETDATE()) AND
+                EXTRACT(HOUR FROM ${timestamp_date}) < EXTRACT(HOUR FROM GETDATE()))
+                    OR
+                (EXTRACT(DOW FROM ${timestamp_date}) = EXTRACT(DOW FROM GETDATE()) AND
+                EXTRACT(HOUR FROM ${timestamp_date}) <= EXTRACT(HOUR FROM GETDATE()) AND
+                EXTRACT(MINUTE FROM ${timestamp_date}) < EXTRACT(MINUTE FROM GETDATE())))  ;;
+  }
+
+  dimension: mtd_only {
+    group_label: "To-Date Filters"
+    label: "MTD"
+    view_label: "_PoP"
+    type: yesno
+    sql:  (EXTRACT(DAY FROM ${timestamp_date}) < EXTRACT(DAY FROM GETDATE())
+                    OR
+                (EXTRACT(DAY FROM ${timestamp_date}) = EXTRACT(DAY FROM GETDATE()) AND
+                EXTRACT(HOUR FROM ${timestamp_date}) < EXTRACT(HOUR FROM GETDATE()))
+                    OR
+                (EXTRACT(DAY FROM ${timestamp_date}) = EXTRACT(DAY FROM GETDATE()) AND
+                EXTRACT(HOUR FROM ${timestamp_date}) <= EXTRACT(HOUR FROM GETDATE()) AND
+                EXTRACT(MINUTE FROM ${timestamp_date}) < EXTRACT(MINUTE FROM GETDATE())))  ;;
+  }
+
+  dimension: ytd_only {
+    group_label: "To-Date Filters"
+    label: "YTD"
+    view_label: "_PoP"
+    type: yesno
+    sql:  (EXTRACT(DOY FROM ${timestamp_date}) < EXTRACT(DOY FROM GETDATE())
+                    OR
+                (EXTRACT(DOY FROM ${timestamp_date}) = EXTRACT(DOY FROM GETDATE()) AND
+                EXTRACT(HOUR FROM ${timestamp_date}) < EXTRACT(HOUR FROM GETDATE()))
+                    OR
+                (EXTRACT(DOY FROM ${timestamp_date}) = EXTRACT(DOY FROM GETDATE()) AND
+                EXTRACT(HOUR FROM ${timestamp_date}) <= EXTRACT(HOUR FROM GETDATE()) AND
+                EXTRACT(MINUTE FROM ${timestamp_date}) < EXTRACT(MINUTE FROM GETDATE())))  ;;
   }
 
   measure: count {
