@@ -31,7 +31,7 @@ view: pop_simple {
     type: string
     order_by_field: timestamp_month # Important
     sql:
-        {% if choose_breakdown._parameter_value == 'Month' %} ${timestamp_month}
+        {% if choose_breakdown._parameter_value == 'Month' %} ${timestamp_month_name}
         {% elsif choose_breakdown._parameter_value == 'DOY' %} ${timestamp_day_of_year}
         {% elsif choose_breakdown._parameter_value == 'DOM' %} ${timestamp_day_of_month}
         {% elsif choose_breakdown._parameter_value == 'DOW' %} ${timestamp_day_of_week}
@@ -46,7 +46,7 @@ view: pop_simple {
     order_by_field: timestamp_week_of_year # Important
     sql:
         {% if choose_comparison._parameter_value == 'Year' %} ${timestamp_year}
-        {% elsif choose_comparison._parameter_value == 'Month' %} ${timestamp_month_name}
+        {% elsif choose_comparison._parameter_value == 'Month' %} ${timestamp_month}
         {% elsif choose_comparison._parameter_value == 'Week' %} ${timestamp_week}
         {% else %}NULL{% endif %} ;;
   }
