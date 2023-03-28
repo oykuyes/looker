@@ -204,12 +204,12 @@ view: order_completed_cs {
     label: "WTD"
     view_label: "_PoP"
     type: yesno
-    sql:  (EXTRACT(DOW FROM ${timestamp_date}) < EXTRACT(DOW FROM DW.GETDATE())
+    sql:  (EXTRACT(DAYOFWEEK FROM ${timestamp_date}) < EXTRACT(DAYOFWEEK FROM DW.GETDATE())
                     OR
-                (EXTRACT(DOW FROM ${timestamp_date}) = EXTRACT(DOW FROM DW.GETDATE()) AND
+                (EXTRACT(DAYOFWEEK FROM ${timestamp_date}) = EXTRACT(DAYOFWEEK FROM DW.GETDATE()) AND
                 EXTRACT(HOUR FROM ${timestamp_date}) < EXTRACT(HOUR FROM DW.GETDATE()))
                     OR
-                (EXTRACT(DOW FROM ${timestamp_date}) = EXTRACT(DOW FROM DW.GETDATE()) AND
+                (EXTRACT(DAYOFWEEK FROM ${timestamp_date}) = EXTRACT(DAYOFWEEK FROM DW.GETDATE()) AND
                 EXTRACT(HOUR FROM ${timestamp_date}) <= EXTRACT(HOUR FROM DW.GETDATE()) AND
                 EXTRACT(MINUTE FROM ${timestamp_date}) < EXTRACT(MINUTE FROM DW.GETDATE())))  ;;
   }
@@ -234,12 +234,12 @@ view: order_completed_cs {
     label: "YTD"
     view_label: "_PoP"
     type: yesno
-    sql:  (EXTRACT(DOY FROM ${timestamp_date}) < EXTRACT(DOY FROM DW.GETDATE())
+    sql:  (EXTRACT(DAYOFYEAR FROM ${timestamp_date}) < EXTRACT(DAYOFYEAR FROM DW.GETDATE())
                     OR
-                (EXTRACT(DOY FROM ${timestamp_date}) = EXTRACT(DOY FROM DW.GETDATE()) AND
+                (EXTRACT(DAYOFYEAR FROM ${timestamp_date}) = EXTRACT(DAYOFYEAR FROM DW.GETDATE()) AND
                 EXTRACT(HOUR FROM ${timestamp_date}) < EXTRACT(HOUR FROM DW.GETDATE()))
                     OR
-                (EXTRACT(DOY FROM ${timestamp_date}) = EXTRACT(DOY FROM DW.GETDATE()) AND
+                (EXTRACT(DAYOFYEAR FROM ${timestamp_date}) = EXTRACT(DAYOFYEAR FROM DW.GETDATE()) AND
                 EXTRACT(HOUR FROM ${timestamp_date}) <= EXTRACT(HOUR FROM DW.GETDATE()) AND
                 EXTRACT(MINUTE FROM ${timestamp_date}) < EXTRACT(MINUTE FROM DW.GETDATE())))  ;;
   }
