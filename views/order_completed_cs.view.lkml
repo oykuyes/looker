@@ -204,14 +204,14 @@ view: order_completed_cs {
     label: "WTD"
     view_label: "_PoP"
     type: yesno
-    sql:  (EXTRACT(DOW FROM ${timestamp_date}) < EXTRACT(DOW FROM GETDATE())
+    sql:  (EXTRACT(DOW FROM ${timestamp_date}) < EXTRACT(DOW FROM DW.GETDATE())
                     OR
-                (EXTRACT(DOW FROM ${timestamp_date}) = EXTRACT(DOW FROM GETDATE()) AND
-                EXTRACT(HOUR FROM ${timestamp_date}) < EXTRACT(HOUR FROM GETDATE()))
+                (EXTRACT(DOW FROM ${timestamp_date}) = EXTRACT(DOW FROM DW.GETDATE()) AND
+                EXTRACT(HOUR FROM ${timestamp_date}) < EXTRACT(HOUR FROM DW.GETDATE()))
                     OR
-                (EXTRACT(DOW FROM ${timestamp_date}) = EXTRACT(DOW FROM GETDATE()) AND
-                EXTRACT(HOUR FROM ${timestamp_date}) <= EXTRACT(HOUR FROM GETDATE()) AND
-                EXTRACT(MINUTE FROM ${timestamp_date}) < EXTRACT(MINUTE FROM GETDATE())))  ;;
+                (EXTRACT(DOW FROM ${timestamp_date}) = EXTRACT(DOW FROM DW.GETDATE()) AND
+                EXTRACT(HOUR FROM ${timestamp_date}) <= EXTRACT(HOUR FROM DW.GETDATE()) AND
+                EXTRACT(MINUTE FROM ${timestamp_date}) < EXTRACT(MINUTE FROM DW.GETDATE())))  ;;
   }
 
   dimension: mtd_only {
@@ -219,14 +219,14 @@ view: order_completed_cs {
     label: "MTD"
     view_label: "_PoP"
     type: yesno
-    sql:  (EXTRACT(DAY FROM ${timestamp_date}) < EXTRACT(DAY FROM GETDATE())
+    sql:  (EXTRACT(DAY FROM ${timestamp_date}) < EXTRACT(DAY FROM DW.GETDATE())
                     OR
-                (EXTRACT(DAY FROM ${timestamp_date}) = EXTRACT(DAY FROM GETDATE()) AND
-                EXTRACT(HOUR FROM ${timestamp_date}) < EXTRACT(HOUR FROM GETDATE()))
+                (EXTRACT(DAY FROM ${timestamp_date}) = EXTRACT(DAY FROM DW.GETDATE()) AND
+                EXTRACT(HOUR FROM ${timestamp_date}) < EXTRACT(HOUR FROM DW.GETDATE()))
                     OR
-                (EXTRACT(DAY FROM ${timestamp_date}) = EXTRACT(DAY FROM GETDATE()) AND
-                EXTRACT(HOUR FROM ${timestamp_date}) <= EXTRACT(HOUR FROM GETDATE()) AND
-                EXTRACT(MINUTE FROM ${timestamp_date}) < EXTRACT(MINUTE FROM GETDATE())))  ;;
+                (EXTRACT(DAY FROM ${timestamp_date}) = EXTRACT(DAY FROM DW.GETDATE()) AND
+                EXTRACT(HOUR FROM ${timestamp_date}) <= EXTRACT(HOUR FROM DW.GETDATE()) AND
+                EXTRACT(MINUTE FROM ${timestamp_date}) < EXTRACT(MINUTE FROM DW.GETDATE())))  ;;
   }
 
   dimension: ytd_only {
@@ -234,14 +234,14 @@ view: order_completed_cs {
     label: "YTD"
     view_label: "_PoP"
     type: yesno
-    sql:  (EXTRACT(DOY FROM ${timestamp_date}) < EXTRACT(DOY FROM GETDATE())
+    sql:  (EXTRACT(DOY FROM ${timestamp_date}) < EXTRACT(DOY FROM DW.GETDATE())
                     OR
-                (EXTRACT(DOY FROM ${timestamp_date}) = EXTRACT(DOY FROM GETDATE()) AND
-                EXTRACT(HOUR FROM ${timestamp_date}) < EXTRACT(HOUR FROM GETDATE()))
+                (EXTRACT(DOY FROM ${timestamp_date}) = EXTRACT(DOY FROM DW.GETDATE()) AND
+                EXTRACT(HOUR FROM ${timestamp_date}) < EXTRACT(HOUR FROM DW.GETDATE()))
                     OR
-                (EXTRACT(DOY FROM ${timestamp_date}) = EXTRACT(DOY FROM GETDATE()) AND
-                EXTRACT(HOUR FROM ${timestamp_date}) <= EXTRACT(HOUR FROM GETDATE()) AND
-                EXTRACT(MINUTE FROM ${timestamp_date}) < EXTRACT(MINUTE FROM GETDATE())))  ;;
+                (EXTRACT(DOY FROM ${timestamp_date}) = EXTRACT(DOY FROM DW.GETDATE()) AND
+                EXTRACT(HOUR FROM ${timestamp_date}) <= EXTRACT(HOUR FROM DW.GETDATE()) AND
+                EXTRACT(MINUTE FROM ${timestamp_date}) < EXTRACT(MINUTE FROM DW.GETDATE())))  ;;
   }
 
   measure: count {
