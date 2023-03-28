@@ -31,7 +31,7 @@ view: pop_simple {
     type: string
     order_by_field: timestamp_month # Important
     sql:
-        {% if choose_breakdown._parameter_value == 'Month' %} ${timestamp_month_name}
+        {% if choose_breakdown._parameter_value == 'Month' %} ${timestamp_month}
         {% elsif choose_breakdown._parameter_value == 'DOY' %} ${timestamp_day_of_year}
         {% elsif choose_breakdown._parameter_value == 'DOM' %} ${timestamp_day_of_month}
         {% elsif choose_breakdown._parameter_value == 'DOW' %} ${timestamp_day_of_week}
