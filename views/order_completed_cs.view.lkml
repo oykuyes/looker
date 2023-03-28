@@ -211,7 +211,7 @@ view: order_completed_cs {
                     OR
                 (EXTRACT(DAYOFWEEK FROM ${timestamp_raw}) = EXTRACT(DAYOFWEEK FROM DW.GETDATE()) AND
                 EXTRACT(HOUR FROM ${timestamp_raw}) <= EXTRACT(HOUR FROM DW.GETDATE()) AND
-                EXTRACT(MINUTE FROM ${timestamp_time}) < EXTRACT(MINUTE FROM DW.GETDATE())))  ;;
+                EXTRACT(MINUTE FROM ${timestamp_raw}) < EXTRACT(MINUTE FROM DW.GETDATE())))  ;;
   }
 
   dimension: mtd_only {
@@ -226,7 +226,7 @@ view: order_completed_cs {
                     OR
                 (EXTRACT(DAY FROM ${timestamp_date}) = EXTRACT(DAY FROM DW.GETDATE()) AND
                 EXTRACT(HOUR FROM ${timestamp_raw}) <= EXTRACT(HOUR FROM DW.GETDATE()) AND
-                EXTRACT(MINUTE FROM ${timestamp_time}) < EXTRACT(MINUTE FROM DW.GETDATE())))  ;;
+                EXTRACT(MINUTE FROM ${timestamp_raw}) < EXTRACT(MINUTE FROM DW.GETDATE())))  ;;
   }
 
   dimension: ytd_only {
@@ -241,7 +241,7 @@ view: order_completed_cs {
                     OR
                 (EXTRACT(DAYOFYEAR FROM ${timestamp_date}) = EXTRACT(DAYOFYEAR FROM DW.GETDATE()) AND
                 EXTRACT(HOUR FROM ${timestamp_raw}) <= EXTRACT(HOUR FROM DW.GETDATE()) AND
-                EXTRACT(MINUTE FROM ${timestamp_time}) < EXTRACT(MINUTE FROM DW.GETDATE())))  ;;
+                EXTRACT(MINUTE FROM ${timestamp_raw}) < EXTRACT(MINUTE FROM DW.GETDATE())))  ;;
   }
 
   measure: count {
