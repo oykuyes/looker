@@ -207,10 +207,10 @@ view: order_completed_cs {
     sql:  (EXTRACT(DAYOFWEEK FROM ${timestamp_raw}) < EXTRACT(DAYOFWEEK FROM DW.GETDATE())
                     OR
                 (EXTRACT(DAYOFWEEK FROM ${timestamp_raw}) = EXTRACT(DAYOFWEEK FROM DW.GETDATE()) AND
-                EXTRACT(HOUR FROM ${timestamp_time}) < EXTRACT(HOUR FROM DW.GETDATE()))
+                EXTRACT(HOUR FROM ${timestamp_raw}) < EXTRACT(HOUR FROM DW.GETDATE()))
                     OR
                 (EXTRACT(DAYOFWEEK FROM ${timestamp_raw}) = EXTRACT(DAYOFWEEK FROM DW.GETDATE()) AND
-                EXTRACT(HOUR FROM ${timestamp_time}) <= EXTRACT(HOUR FROM DW.GETDATE()) AND
+                EXTRACT(HOUR FROM ${timestamp_raw}) <= EXTRACT(HOUR FROM DW.GETDATE()) AND
                 EXTRACT(MINUTE FROM ${timestamp_time}) < EXTRACT(MINUTE FROM DW.GETDATE())))  ;;
   }
 
@@ -222,10 +222,10 @@ view: order_completed_cs {
     sql:  (EXTRACT(DAY FROM ${timestamp_date}) < EXTRACT(DAY FROM DW.GETDATE())
                     OR
                 (EXTRACT(DAY FROM ${timestamp_date}) = EXTRACT(DAY FROM DW.GETDATE()) AND
-                EXTRACT(HOUR FROM ${timestamp_time}) < EXTRACT(HOUR FROM DW.GETDATE()))
+                EXTRACT(HOUR FROM ${timestamp_raw}) < EXTRACT(HOUR FROM DW.GETDATE()))
                     OR
                 (EXTRACT(DAY FROM ${timestamp_date}) = EXTRACT(DAY FROM DW.GETDATE()) AND
-                EXTRACT(HOUR FROM ${timestamp_time}) <= EXTRACT(HOUR FROM DW.GETDATE()) AND
+                EXTRACT(HOUR FROM ${timestamp_raw}) <= EXTRACT(HOUR FROM DW.GETDATE()) AND
                 EXTRACT(MINUTE FROM ${timestamp_time}) < EXTRACT(MINUTE FROM DW.GETDATE())))  ;;
   }
 
@@ -237,10 +237,10 @@ view: order_completed_cs {
     sql:  (EXTRACT(DAYOFYEAR FROM ${timestamp_date}) < EXTRACT(DAYOFYEAR FROM DW.GETDATE())
                     OR
                 (EXTRACT(DAYOFYEAR FROM ${timestamp_date}) = EXTRACT(DAYOFYEAR FROM DW.GETDATE()) AND
-                EXTRACT(HOUR FROM ${timestamp_time}) < EXTRACT(HOUR FROM DW.GETDATE()))
+                EXTRACT(HOUR FROM ${timestamp_raw}) < EXTRACT(HOUR FROM DW.GETDATE()))
                     OR
                 (EXTRACT(DAYOFYEAR FROM ${timestamp_date}) = EXTRACT(DAYOFYEAR FROM DW.GETDATE()) AND
-                EXTRACT(HOUR FROM ${timestamp_time}) <= EXTRACT(HOUR FROM DW.GETDATE()) AND
+                EXTRACT(HOUR FROM ${timestamp_raw}) <= EXTRACT(HOUR FROM DW.GETDATE()) AND
                 EXTRACT(MINUTE FROM ${timestamp_time}) < EXTRACT(MINUTE FROM DW.GETDATE())))  ;;
   }
 
