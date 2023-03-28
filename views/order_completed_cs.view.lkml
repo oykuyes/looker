@@ -204,12 +204,12 @@ view: order_completed_cs {
     label: "WTD"
     view_label: "_PoP"
     type: yesno
-    sql:  (EXTRACT(DAYOFWEEK FROM ${timestamp_date}) < EXTRACT(DAYOFWEEK FROM DW.GETDATE())
+    sql:  (EXTRACT(DAYOFWEEK FROM ${timestamp_raw}) < EXTRACT(DAYOFWEEK FROM DW.GETDATE())
                     OR
-                (EXTRACT(DAYOFWEEK FROM ${timestamp_date}) = EXTRACT(DAYOFWEEK FROM DW.GETDATE()) AND
+                (EXTRACT(DAYOFWEEK FROM ${timestamp_raw}) = EXTRACT(DAYOFWEEK FROM DW.GETDATE()) AND
                 EXTRACT(HOUR FROM ${timestamp_time}) < EXTRACT(HOUR FROM DW.GETDATE()))
                     OR
-                (EXTRACT(DAYOFWEEK FROM ${timestamp_date}) = EXTRACT(DAYOFWEEK FROM DW.GETDATE()) AND
+                (EXTRACT(DAYOFWEEK FROM ${timestamp_raw}) = EXTRACT(DAYOFWEEK FROM DW.GETDATE()) AND
                 EXTRACT(HOUR FROM ${timestamp_time}) <= EXTRACT(HOUR FROM DW.GETDATE()) AND
                 EXTRACT(MINUTE FROM ${timestamp_time}) < EXTRACT(MINUTE FROM DW.GETDATE())))  ;;
   }
