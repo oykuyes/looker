@@ -34,6 +34,7 @@ view: tracks_cs {
     drill_fields: [ordercompleteddetail*]
     link: {
       label: "Order Completed Details"
+      url: "/explore/segment/tracks_cs?fields=tracks_cs.ordercompleteddetail*"
     }
 
   }
