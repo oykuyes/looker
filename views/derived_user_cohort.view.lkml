@@ -44,7 +44,7 @@ view: derived_user_cohort {
 
     description: "Unique ID for each user"
 
-    type: number
+    type: string
 
     sql: ${TABLE}.user_id ;;
 
