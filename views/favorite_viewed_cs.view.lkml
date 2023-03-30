@@ -2,6 +2,12 @@ view: favorite_viewed_cs {
   sql_table_name: `ciceksepeti-dwh.Looker.FavoriteViewedCSView`
     ;;
 
+  dimension: event_id {
+    primary_key: yes
+    type: string
+    sql: ${TABLE}.event_id ;;
+  }
+
   dimension: category {
     type: string
     sql: ${TABLE}.category ;;

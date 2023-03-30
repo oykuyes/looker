@@ -2,6 +2,12 @@ view: promotion_clicked_cs {
   sql_table_name: `ciceksepeti-dwh.Looker.PromotionClickedCSView`
     ;;
 
+  dimension: event_id {
+    primary_key: yes
+    type: string
+    sql: ${TABLE}.event_id ;;
+  }
+
   dimension: channel {
     type: number
     sql: ${TABLE}.channel ;;

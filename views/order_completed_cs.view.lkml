@@ -2,6 +2,12 @@ view: order_completed_cs {
   sql_table_name: `ciceksepeti-dwh.Looker.OrderCompletedCSView`
     ;;
 
+  dimension: event_id {
+    primary_key: yes
+    type: string
+    sql: ${TABLE}.event_id ;;
+  }
+
   dimension: authentication {
     type: string
     sql: ${TABLE}.authentication ;;
@@ -108,7 +114,6 @@ view: order_completed_cs {
   }
 
   dimension: order_id {
-    primary_key: yes
     type: string
     sql: ${TABLE}.order_id ;;
   }

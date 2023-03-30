@@ -1,12 +1,11 @@
 view: product_viewed_cs {
   sql_table_name: `ciceksepeti-dwh.Looker.ProductViewedCSView`
     ;;
-  drill_fields: [id]
 
-  dimension: id {
+  dimension: event_id {
     primary_key: yes
     type: string
-    sql: ${TABLE}.id ;;
+    sql: ${TABLE}.event_id ;;
   }
 
   dimension: brand {
