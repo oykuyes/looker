@@ -61,8 +61,9 @@ view: tracks_cs {
     type: date
 
   }
-  measure: count {
-    type: count
+  measure: event_name {
+    type: min
+    sql: ${event_text};;
     drill_fields: [ordercompleteddetail*]
     link: {
       label: "Order Completed Details"
