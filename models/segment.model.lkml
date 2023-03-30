@@ -80,3 +80,5 @@ explore: dim_date {
 }
 
 explore: promotion_clicked_cs {}
+
+explore: tracks_cs {}
