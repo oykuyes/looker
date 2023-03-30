@@ -62,7 +62,7 @@ view: tracks_cs {
 
   }
   measure: event_name {
-    type: min
+    type: string
     sql: ${event_text};;
     drill_fields: [ordercompleteddetail*]
     link: {
