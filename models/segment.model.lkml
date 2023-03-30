@@ -83,27 +83,27 @@ explore: promotion_clicked_cs {}
 
 explore: tracks_cs {
   join: order_completed_cs {
-    type: inner
+    type: left_outer
     relationship: one_to_one
     sql_on: ${order_completed_cs.event_id} = ${tracks_cs.event_id} ;;
   }
   join: favorite_viewed_cs {
-    type: inner
+    type: left_outer
     relationship: one_to_one
     sql_on: ${favorite_viewed_cs.event_id} = ${tracks_cs.event_id} ;;
   }
   join: product_viewed_cs {
-    type: inner
+    type: left_outer
     relationship: one_to_one
     sql_on: ${product_viewed_cs.event_id} = ${tracks_cs.event_id} ;;
   }
   join: product_purchased_cs {
-    type: inner
+    type: left_outer
     relationship: one_to_one
     sql_on: ${product_purchased_cs.event_id} = ${tracks_cs.event_id} ;;
   }
   join: promotion_clicked_cs {
-    type: inner
+    type: left_outer
     relationship: one_to_one
     sql_on: ${promotion_clicked_cs.event_id} = ${tracks_cs.event_id} ;;
   }
