@@ -3,9 +3,8 @@ view: tracks_cs {
 
     sql: SELECT * FROM ciceksepeti-dwh.Looker.TracksCSView as tracks_cs
 
-      WHERE tracks_cs.PartitionColumn BETWEEN DATE({% date_start events_date %})
-
-                               AND DATE_SUB(DATE({% date_start events_date %}),INTERVAL 7 DAY)
+      WHERE tracks_cs.PartitionColumn BETWEEN DATE_SUB(DATE({% date_start events_date %}),INTERVAL 7 DAY)
+                               AND DATE({% date_start events_date %})
 
 
 
