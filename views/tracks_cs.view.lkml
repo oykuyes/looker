@@ -31,7 +31,14 @@ view: tracks_cs {
     type: string
 
     sql: ${TABLE}.event_text ;;
+    drill_fields: [order_completed_detail*, product_purchased_detail*]
 
+  }
+  set: order_completed_detail {
+    fields: [order_completed_cs.timestamp, order_completed_cs.order_id]
+  }
+  set: product_purchased_detail {
+    fields: [product_purchased_cs.timestamp, product_purchased_cs.product_id]
   }
   dimension: user_id {
 
