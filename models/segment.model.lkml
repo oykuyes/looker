@@ -43,6 +43,11 @@ explore: dim_user {
     relationship: one_to_one
     sql_on: ${derived_user_cohort.user_id} = ${dim_user.user_id} ;;
   }
+  join: dim_cohort {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${dim_cohort.id} = ${dim_user.user_id} ;;
+  }
 }
 
 explore: favorite_viewed_cs {}
