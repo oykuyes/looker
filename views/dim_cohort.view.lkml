@@ -2,7 +2,7 @@ view: dim_cohort {
     sql_table_name: `ciceksepeti-dwh.Looker.DimCohortView`
       ;;
 
-    dimension: id {
+    dimension: user_id {
       primary_key: yes
       type: string
       sql: ${TABLE}.Id ;;
