@@ -38,10 +38,10 @@ explore: dim_user {
     relationship: one_to_many
     sql_on: ${promotion_clicked_cs.user_id} = ${dim_user.user_id} ;;
   }
-  join: derived_user_cohort {
+  join: dim_cohort {
     type: inner
     relationship: one_to_one
-    sql_on: ${derived_user_cohort.user_id} = ${dim_user.user_id} ;;
+    sql_on: ${dim_cohort.user_id} = ${dim_user.user_id} ;;
   }
   join: dim_cohort {
     type: left_outer
@@ -55,6 +55,8 @@ explore: favorite_viewed_cs {}
 explore: product_viewed_cs {}
 
 explore: product_purchased_cs {}
+
+explore: dim_cohort {}
 
 explore: dim_date {
   join: order_completed_cs {
