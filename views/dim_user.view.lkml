@@ -6,6 +6,7 @@ view: dim_user{
     primary_key: yes
     type: string
     sql: ${TABLE}.UserId ;;
+    tags: ["braze_id"]
   }
 
   measure: count {

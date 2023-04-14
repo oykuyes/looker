@@ -6,6 +6,7 @@ view: dim_cohort {
       primary_key: yes
       type: string
       sql: ${TABLE}.Id ;;
+      tags: ["braze_id"]
     }
 
     dimension: Value {
