@@ -17,6 +17,7 @@ view: dim_cohort {
     dimension: AudienceName {
       type: string
       sql: ${TABLE}.AudienceName ;;
+      tags: ["braze[AudienceName]"]
     }
 
     dimension: PartitionColumn {
